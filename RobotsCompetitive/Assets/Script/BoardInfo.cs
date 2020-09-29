@@ -17,7 +17,7 @@ public class BoardInfo
         {
             case 1: //South
                 //finds first item going south direction
-                collision_items = objsInfoList.FindAll(obj => obj.x_coord == player_init_x && player_init_y >= obj.y_coord && obj.type == 1);
+                collision_items = objsInfoList.FindAll(obj => obj.x_coord == player_init_x && player_init_y >= obj.y_coord && (obj.type == 1 || obj.type == 0));
                 collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
                 returnList.Add(player_init_x);
                 if (collision_item.type == 0)
@@ -31,21 +31,21 @@ public class BoardInfo
                 break;
             case 2: //Est
                 //finds first item going East direction
-                collision_items = objsInfoList.FindAll(obj => obj.y_coord == player_init_y && player_init_x < obj.x_coord && obj.type == 2);
+                collision_items = objsInfoList.FindAll(obj => obj.y_coord == player_init_y && player_init_x < obj.x_coord && (obj.type == 2 || obj.type == 0));
                 collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
                 returnList.Add(collision_item.x_coord - 1);
                 returnList.Add(player_init_y);
                 break;
             case 3:
                 //finds first item going Nord direction
-                collision_items = objsInfoList.FindAll(obj => obj.x_coord == player_init_x && player_init_y < obj.y_coord && (obj.type == 1 || obj.type == 3));
+                collision_items = objsInfoList.FindAll(obj => obj.x_coord == player_init_x && player_init_y < obj.y_coord && (obj.type == 1 || obj.type == 0));
                 collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
                 returnList.Add(player_init_x);
                 returnList.Add(collision_item.y_coord - 1);
                 break;
             case 4:
                 //finds first item going West direction
-                collision_items = objsInfoList.FindAll(obj => obj.y_coord == player_init_y && player_init_x >= obj.x_coord && (obj.type == 2 || obj.type == 4));
+                collision_items = objsInfoList.FindAll(obj => obj.y_coord == player_init_y && player_init_x >= obj.x_coord && (obj.type == 2 || obj.type == 0));
                 collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
                 if (collision_item.type == 0)
                 {
