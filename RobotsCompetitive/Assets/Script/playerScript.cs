@@ -5,10 +5,10 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject board;
+    private GameObject board;
     void Start()
     {
-
+        board = GameObject.Find("TableBoard");
         TableBoardScript table = board.GetComponent<TableBoardScript>();
         //table.board;
     }
