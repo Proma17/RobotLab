@@ -1,7 +1,6 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 [System.Serializable]
 public class BoardInfo
@@ -58,28 +57,6 @@ public class BoardInfo
                 returnList.Add(player_init_y);
                 break;
         }
-        /*
-         switch (direction)
-        {
-            case 1: //South
-                //finds first item going south direction
-                collision_items = digits.FindAll(obj => obj.x_coord == player_init_x && player_init_y >= obj.y_coord && (obj.type == 1 || obj.type == 3));
-                ObjInfo collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
-                break;
-            case 2: //Est
-                //finds first item going south direction
-                collision_items = digits.FindAll(obj => obj.y_coord == player_init_y && player_init_x <= obj.x_coord && (obj.type == 2 || obj.type == 4));
-                break;
-            case 3:
-                //finds first item going Nord direction
-                collision_items = digits.FindAll(obj => obj.x_coord == player_init_x && player_init_y <= obj.y_coord && (obj.type == 1 || obj.type == 3));
-                break;
-            case 4:
-                //finds first item going south direction
-                collision_items = digits.FindAll(obj => obj.y_coord == player_init_y && player_init_x >= obj.x_coord && (obj.type == 2 || obj.type == 4));
-                break;
-        }
-        */
 
         return returnList;
     }
