@@ -7,7 +7,7 @@ using UnityEngine;
 public class BoardInfo
 {
     public List<ObjInfo> objsInfoList;
-    public List<int> calcPos(int player_init_x, int player_init_y, int direction)
+    public List<int> CalcPos(int player_init_x, int player_init_y, int direction)
     {
         List<int> returnList = new List<int>();
         //direction 1=>South 2=>Est 3=Nord 4=West
@@ -18,7 +18,7 @@ public class BoardInfo
             case 1: //South
                 //finds first item going south direction
                 collision_items = objsInfoList.FindAll(obj => obj.x_coord == player_init_x && player_init_y >= obj.y_coord && (obj.type == 1 || obj.type == 0));
-                collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
+                collision_item = collision_items.OrderBy(obj => obj.y_coord).ThenBy(obj => obj.type).First();
                 returnList.Add(player_init_x);
                 if (collision_item.type == 0)
                 {
