@@ -5,9 +5,12 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject board;
     void Start()
     {
-        
+
+        TableBoardScript table = board.GetComponent<TableBoardScript>();
+        //table.board;
     }
 
     // Update is called once per frame
@@ -24,5 +27,7 @@ public class playerScript : MonoBehaviour
 
             transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
             //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
+
     }
 }
+    

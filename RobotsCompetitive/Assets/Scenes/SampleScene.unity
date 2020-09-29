@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.223201
+  orthographic size: 18.396006
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -211,6 +211,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268617234}
     m_Modifications:
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098364989413918958, guid: f9af05bc955b44d45b56dd1d1209c807,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -286,6 +291,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268617234}
     m_Modifications:
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098364989413918958, guid: f9af05bc955b44d45b56dd1d1209c807,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -391,6 +401,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268617234}
     m_Modifications:
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 1572127367}
     - target: {fileID: 2098364989413918958, guid: f9af05bc955b44d45b56dd1d1209c807,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -531,6 +546,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268617234}
     m_Modifications:
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098364989413918958, guid: f9af05bc955b44d45b56dd1d1209c807,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -673,6 +693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572127369}
   - component: {fileID: 1572127368}
+  - component: {fileID: 1572127370}
   m_Layer: 0
   m_Name: TableBoard
   m_TagString: Untagged
@@ -745,6 +766,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1572127370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572127367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b71fb2a5aa79c4fab0b5ef63126801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board:
+    objsInfoList: []
 --- !u!1 &1787972451
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +820,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1268617234}
     m_Modifications:
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: table_board
+      value: 
+      objectReference: {fileID: 1572127367}
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 1572127367}
+    - target: {fileID: 39365279892971597, guid: f9af05bc955b44d45b56dd1d1209c807,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098364989413918958, guid: f9af05bc955b44d45b56dd1d1209c807,
         type: 3}
       propertyPath: m_LocalPosition.x
