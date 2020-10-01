@@ -1,44 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TableBoardScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public BoardInfo board;
+    public BoardInfo board = new BoardInfo();
     private GameObject relativePosition;
-    private List<GameObject> player_type_0 = new List<GameObject>();
-    private List<GameObject> wall_type_1 = new List<GameObject>();
-    private List<GameObject> wall_type_2 = new List<GameObject>();
 
     void Start()
     {
-        
-        board = new BoardInfo();
         relativePosition = GameObject.Find("RelativePosition");
-
-        List<GameObject> walls_child = new List<GameObject>();
-        foreach (Transform child in relativePosition.transform)
-        {
-            if (child.name == "Walls")
-            {
-                walls_child.Add(child.gameObject);
-            }
-            else if (child.name == "Players")
-            {
-
-            }
-        }
-
+        InitializeObjsInfoList();
+        int a = 1;
 
     }
 
     void InitializeObjsInfoList()
     {
-       
+        List<GameObject> wallsChild = new List<GameObject>();
+        ObjInfo toAdd; 
+
+        foreach (Transform dirDirChild in relativePosition.transform)
+        {
+            if (dirDirChild.name == "Walls")
+            {
+                foreach (Transform dirChild in dirDirChild.transform)
+                {
+                    foreach (Transform child in dirChild.transform)
+                    {
+                        if (child.tag == "Wall_X")
+                        {
+                            toAdd = new ObjInfo();
+                            toAdd.type = 1;
+                            toAdd.x_coord = (int)child.transform.localPosition.x;
+                            toAdd.y_coord = (int)child.transform.localPosition.y;
+                            board.objsInfoList.Add(toAdd);
+                        }
+                        else if (child.tag == "Wall_Y")
+                        {
+                            toAdd = new ObjInfo();
+                            toAdd.type = 2;
+                            toAdd.x_coord = (int)child.transform.localPosition.x;
+                            toAdd.y_coord = (int)child.transform.localPosition.y;
+                            board.objsInfoList.Add(toAdd);
+                        }
+                    }
+                }
+            }
+            else if (dirDirChild.name == "Players")
+            {
+                foreach (Transform child in dirDirChild.transform)
+                {
+                    if (child.tag == "Player")
+                    {
+                        toAdd = new ObjInfo();
+                        toAdd.type = 0;
+                        toAdd.x_coord = (int)child.transform.localPosition.x;
+                        toAdd.y_coord = (int)child.transform.localPosition.y;
+                        board.objsInfoList.Add(toAdd);
+                    }
+                }
+            }
+        }      
     }
 
-    // Update is called once per frame
     void Update()
     {
         
