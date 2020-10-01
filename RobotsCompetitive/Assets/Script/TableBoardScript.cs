@@ -13,12 +13,14 @@ public class TableBoardScript : MonoBehaviour
     {
         relativePosition = GameObject.Find("RelativePosition");
         InitializeObjsInfoList();
+        int a = 1;
+
     }
 
     void InitializeObjsInfoList()
     {
         List<GameObject> wallsChild = new List<GameObject>();
-        ObjInfo toAdd = new ObjInfo();
+        ObjInfo toAdd; 
 
         foreach (Transform dirDirChild in relativePosition.transform)
         {
@@ -26,20 +28,22 @@ public class TableBoardScript : MonoBehaviour
             {
                 foreach (Transform dirChild in dirDirChild.transform)
                 {
-                    foreach (Transform Child in dirChild.transform)
+                    foreach (Transform child in dirChild.transform)
                     {
-                        if (Child.tag == "Wall_X")
+                        if (child.tag == "Wall_X")
                         {
+                            toAdd = new ObjInfo();
                             toAdd.type = 1;
-                            toAdd.x_coord = (int)Child.transform.position.x;
-                            toAdd.y_coord = (int)Child.transform.position.y;
+                            toAdd.x_coord = (int)child.transform.localPosition.x;
+                            toAdd.y_coord = (int)child.transform.localPosition.y;
                             board.objsInfoList.Add(toAdd);
                         }
-                        else if (Child.tag == "Wall_Y")
+                        else if (child.tag == "Wall_Y")
                         {
+                            toAdd = new ObjInfo();
                             toAdd.type = 2;
-                            toAdd.x_coord = (int)Child.transform.position.x;
-                            toAdd.y_coord = (int)Child.transform.position.y;
+                            toAdd.x_coord = (int)child.transform.localPosition.x;
+                            toAdd.y_coord = (int)child.transform.localPosition.y;
                             board.objsInfoList.Add(toAdd);
                         }
                     }
@@ -47,13 +51,14 @@ public class TableBoardScript : MonoBehaviour
             }
             else if (dirDirChild.name == "Players")
             {
-                foreach (Transform Child in dirDirChild.transform)
+                foreach (Transform child in dirDirChild.transform)
                 {
-                    if (Child.tag == "Player")
+                    if (child.tag == "Player")
                     {
+                        toAdd = new ObjInfo();
                         toAdd.type = 0;
-                        toAdd.x_coord = (int)Child.transform.position.x;
-                        toAdd.y_coord = (int)Child.transform.position.y;
+                        toAdd.x_coord = (int)child.transform.localPosition.x;
+                        toAdd.y_coord = (int)child.transform.localPosition.y;
                         board.objsInfoList.Add(toAdd);
                     }
                 }
