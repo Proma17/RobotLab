@@ -9,25 +9,36 @@ public class playerScript : MonoBehaviour
     void Start()
     {
         board = GameObject.Find("TableBoard");
-        TableBoardScript table = board.GetComponent<TableBoardScript>();
+        
         //table.board;
     }
 
     // Update is called once per frame
     void Update()
     {
-            float moveSpeed = 10;
-            //Define the speed at which the object moves.
-
-            float horizontalInput = Input.GetAxis("Horizontal");
-            //Get the value of the Horizontal input axis.
-
-            float verticalInput = Input.GetAxis("Vertical");
-            //Get the value of the Vertical input axis.
-
-            transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime);
-            //Move the object to XYZ coordinates defined as horizontalInput, 0, and verticalInput respectively.
-
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            MovePlayer(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MovePlayer(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            MovePlayer(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MovePlayer(4);
+        }
+    }
+    void MovePlayer(int direction)
+    {
+        TableBoardScript table = board.GetComponent<TableBoardScript>();
+        var cur_x = (int)this.transform.localPosition.x;
+        var cur_y = (int)this.transform.localPosition.y;
+        List<int> pos = table.board.CalcPos(cur_x, cur_y, direction);
+        transform.localPosition = new Vector3(pos[0], pos[1], this.transform.localPosition.z);
     }
 }
-    

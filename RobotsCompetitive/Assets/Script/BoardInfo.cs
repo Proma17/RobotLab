@@ -44,7 +44,7 @@ public class BoardInfo
                 break;
             case 4:
                 //finds first item going West direction
-                collision_items = objsInfoList.FindAll(obj => obj.y_coord == player_init_y && player_init_x >= obj.x_coord && (obj.type == 2 || obj.type == 0));
+                collision_items = objsInfoList.FindAll(obj => !(obj.y_coord == player_init_y && obj.x_coord == player_init_x && obj.type == 0) && obj.y_coord == player_init_y && player_init_x >= obj.x_coord && (obj.type == 2 || obj.type == 0));
                 collision_item = collision_items.OrderBy(obj => obj.y_coord).First();
                 if (collision_item.type == 0)
                 {
