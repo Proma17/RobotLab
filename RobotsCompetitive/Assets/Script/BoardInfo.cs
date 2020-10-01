@@ -5,7 +5,7 @@ using System.Linq;
 [System.Serializable]
 public class BoardInfo
 {
-    public List<ObjInfo> objsInfoList;
+    private List<ObjInfo> objsInfoList = new List<ObjInfo>();
     public List<int> CalcPos(int player_init_x, int player_init_y, int direction)
     {
         List<int> returnList = new List<int>();
