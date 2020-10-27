@@ -68,4 +68,5 @@ public class ObjInfo
     public int x_coord;
     public int y_coord;
     public int type;
+    public string player_name;
 }

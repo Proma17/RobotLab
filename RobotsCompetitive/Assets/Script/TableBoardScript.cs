@@ -13,7 +13,6 @@ public class TableBoardScript : MonoBehaviour
     {
         relativePosition = GameObject.Find("RelativePosition");
         InitializeObjsInfoList();
-        int a = 1;
 
     }
 
@@ -53,14 +52,12 @@ public class TableBoardScript : MonoBehaviour
             {
                 foreach (Transform child in dirDirChild.transform)
                 {
-                    if (child.tag == "Player")
-                    {
-                        toAdd = new ObjInfo();
-                        toAdd.type = 0;
-                        toAdd.x_coord = (int)child.transform.localPosition.x;
-                        toAdd.y_coord = (int)child.transform.localPosition.y;
-                        board.objsInfoList.Add(toAdd);
-                    }
+                    toAdd = new ObjInfo();
+                    toAdd.type = 0;
+                    toAdd.x_coord = (int)child.transform.localPosition.x;
+                    toAdd.y_coord = (int)child.transform.localPosition.y;
+                    toAdd.player_name = child.name;
+                    board.objsInfoList.Add(toAdd);
                 }
             }
         }      
